@@ -3,14 +3,14 @@
     background-color: #32CD32;
 }
 
-h2 {
-    font-family: 'Chelsea Market', Georgia, serif;
+h1 {
+    font-family: 'Patrick Hand SC', cursive;
     font-size: 2em;
     margin-bottom: 10px;
 }
 
 p {
-    font-family: 'Josefin Slab', Georgia, serif;
+    font-family: 'Open Sans Condensed', sans-serif;
     font-size: 1.3em;
     margin-bottom: 10px;
 }
@@ -22,7 +22,7 @@ header {
 header h1 {
     font-size: 4em;
     line-height: 1;
-    font-family: 'Chelsea Market', Georgia, serif;
+    font-family: 'Patrick Hand SC', cursive;
     float: left;
     margin-top: 50px;
     margin-left: 50px;
@@ -51,7 +51,21 @@ html, body {
 }
 
 #corpo {
+    padding: 100px;
+}
+
+#team-1 {
+    display: inline-block;
+}
+
+#team-1 p {
     text-align: center;
-    margin-top: 300px;
-    margin-bottom: 300px;
+}
+
+#team-2 {
+    display: inline-block;
+}
+
+#team-2 p {
+    text-align: center;
 }
