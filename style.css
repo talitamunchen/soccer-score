@@ -51,21 +51,57 @@ html, body {
 }
 
 #corpo {
-    padding: 100px;
+    margin: 0 auto;
+    width: 80%;
+    display: block;
 }
 
 #team-1 {
     display: inline-block;
+    text-align: center;
+    margin-right: 28%;
 }
 
 #team-1 p {
     text-align: center;
 }
 
+#icon-x {
+    display: inline-block;
+    text-align: center;
+    margin-right: 28%;
+}
+
 #team-2 {
     display: inline-block;
+    text-align: center;
 }
 
 #team-2 p {
     text-align: center;
+}
+
+.time-selec {
+    text-align: center;
+    text-align-last: center;
+}
+
+.styled-select select {
+   background: transparent;
+   width: 200px;
+   padding: 5px;
+   font-size: 16px;
+   line-height: 1;
+   border: 0;
+   border-radius: 0;
+   height: 34px;
+   -webkit-appearance: none;
+}
+
+.styled-select {
+   width: 200px;;
+   height: 34px;
+   overflow: hidden;
+   background: url(pictures/arrow_select.jpg) no-repeat right #ddd;
+   border: 1px solid #ccc;
 }
