@@ -1,0 +1,65 @@
+﻿-- tabela para preenchimento dinâmico das caixas de combo
+CREATE TABLE participantes (
+	idparticipante SERIAL NOT NULL,
+	nome VARCHAR(20) NOT NULL,
+	PRIMARY KEY (idparticipante)
+);
+-- tabela para salvar as disputas entre os participantes
+CREATE TABLE disputas (
+	iddisputa SERIAL NOT NULL,
+	participante1 VARCHAR(20) NOT NULL,
+	participante2 VARCHAR(20) NOT NULL,
+	score1 INT NOT NULL,
+	score2 INT NOT NULL,
+	PRIMARY KEY (iddisputa)
+);
+-- tabela para a classificação dos participantes
+CREATE TABLE ranking (
+	participante VARCHAR(20) NOT NULL,
+	pontos DECIMAL(3,1) DEFAULT 0,
+	scorefavor INT DEFAULT 0
+);
+-- gatilho para adição automática no ranking, quando da inserção de um novo participante
+CREATE OR REPLACE FUNCTION adiciona_no_ranking() RETURNS TRIGGER AS
+$$
+BEGIN
+	INSERT INTO ranking (participante) VALUES (NEW.nome);
+	RETURN NEW;
+END
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER trg_adiciona_no_ranking AFTER INSERT ON participantes
+FOR EACH ROW EXECUTE PROCEDURE adiciona_no_ranking();
+
+-- gatilho para atualização de pontos a cada disputa
+CREATE OR REPLACE FUNCTION atualiza_pontuacao() RETURNS TRIGGER AS
+$$
+BEGIN
+	UPDATE ranking
+	SET scorefavor = scorefavor + NEW.score1
+	WHERE participante = NEW.participante1;
+
+	UPDATE ranking
+	SET scorefavor = scorefavor + NEW.score2
+	WHERE participante = NEW.participante2;
+	
+	IF NEW.score1 > NEW.score2 THEN
+		UPDATE ranking
+		SET pontos = pontos + 1
+		WHERE participante = NEW.participante1;
+	ELSIF NEW.score1 < NEW.score2 THEN
+		UPDATE ranking
+		SET pontos = pontos + 1
+		WHERE participante = NEW.participante2;
+	ELSE 
+		UPDATE ranking
+		SET pontos = pontos + 0.5
+		WHERE participante = NEW.participante1 OR participante = NEW.participante2;
+	END IF;
+	RETURN NEW;
+END
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER trg_atualiza_pontuacao AFTER INSERT ON disputas
+FOR EACH ROW EXECUTE PROCEDURE atualiza_pontuacao();
+

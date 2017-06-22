@@ -1,0 +1,4 @@
+﻿INSERT INTO participantes (idparticipante, nome)
+VALUES
+	(1,'Os pavões'),
+	(2,'Os bananas');
