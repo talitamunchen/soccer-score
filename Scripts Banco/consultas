@@ -1,0 +1,8 @@
+﻿-- Ver todas as disputas
+--SELECT * FROM disputas;
+
+-- Ver ranking por ordem de pontos
+--SELECT * FROM ranking ORDER BY pontos DESC;
+
+-- Deletar as disputas do banco
+-- DELETE FROM disputas;

@@ -24,10 +24,14 @@
                     <img src="./pictures/yellow.png" alt="icon">
                     <p>Time 1</p>
                     <div class="styled-select slate">
-                        <label for="nome"> </label>
-                            <select id="nome">
+                        <label for="time1"> </label>
+                            <select id="time1">
                                     <option>Escolha</option> 
                             </select>
+                    </div>
+                    <div class="placar">
+                        <label for="score1">Placar </label>
+                        <input type="number" id="score1" />
                     </div>
                 </div>
                 <div id="icon-x">
@@ -37,18 +41,30 @@
                     <img src="./pictures/black.png" alt="icon">
                     <p>Time 2</p>
                     <div class="styled-select slate">
-                        <label for="nome2"> </label>
-                            <select id="nome2">
+                        <label for="time2"> </label>
+                            <select id="time2">
                                     <option>Escolha</option> 
                             </select>
                     </div>
+                    <div class="placar">
+                        <label for="score2">Placar </label>
+                        <input type="number" id="score2" />
+                    </div>
                 </div>
+                
+                <div class="botao">
+                    <input type="button" id="cadastra-confronto" value="Cadastrar Confronto" />
+                    <input type="button" id="atualiza-ranking" value="Atualiza Ranking" />
+                </div>
+          
             </form>
-            
-            <table>
-			
+           
+            <table id="tabela">
+    
             </table>
-       </div>
+         
+        </div>  
+         
         <footer>
             <p>Copyright &copy; 2017 ~ Talita e Yris ~ All Rights Reserved</p>
         </footer>   

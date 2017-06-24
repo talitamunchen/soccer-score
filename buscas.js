@@ -4,8 +4,8 @@ $(document).ready(function() {
 		dataType : "json",
  		success : function(resp){
 			for(i=0; i < resp.length; i++){
-				$("#nome").append("<option>" + resp[i].nome + "</option>");
-                                $("#nome2").append("<option>" + resp[i].nome + "</option>");
+				$("#time1").append("<option>" + resp[i].nome + "</option>");
+                                $("#time2").append("<option>" + resp[i].nome + "</option>");
                                 //alert(resp[i].nome);
 			}
 		},
@@ -14,6 +14,36 @@ $(document).ready(function() {
 		}
 	});
 	
-	
-	
+        $("#cadastra-confronto").click(function(){
+            $.ajax({
+                url : "insereConfronto.php",
+                method : "POST",
+                dataType : "json",
+                data : {participante1 : $("#time1").val(), participante2 : $("#time2").val(), score1 : $("#score1").val(), score2 : $("#score2").val()},
+                success : function(resp){
+                    alert("Funfou");                   
+                },
+                error : function(err){
+                    alert("ERRO: " + err.status);
+                }
+            });
+        });
+        
+        $("#atualiza-ranking").click(function(){
+            $.ajax({
+                url : "ranking.php",
+		dataType : "json",
+ 		success : function(resp){
+                    $("#tabela").empty();
+                    $("#tabela").append("<tr><th>Participantes</th><th>Pontuação</th><th>Score</th></tr>");
+                   //alert("Funfou");
+                  for (i = 0; i < resp.length; i++) {
+                    $("#tabela").append("<tr><td>"+ resp[i].participante + "</td><td>"+ resp[i].pontos + "</td><td>"+ resp[i].scorefavor + "</td></tr>");
+                    }
+		},
+		error : function(){
+			alert("ERRO: " + err.status);
+		}
+                });
+        });
 });
