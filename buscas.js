@@ -22,7 +22,7 @@ $(document).ready(function() {
                 data : {nome : $("#nome").val()},
                 success : function(resp){
                     alert("Participante cadastrado com sucesso!");
-                    window.location="index.html"; //Redireciona pro index.html após cadastrar
+                    //window.location="index.html"; //Redireciona pro index.html após cadastrar
                 },
                 error : function(err){
                     alert("ERRO: " + err.status);
@@ -37,7 +37,7 @@ $(document).ready(function() {
                 //dataType : "json",
                 data : {participante1 : $("#time1").val(), participante2 : $("#time2").val(), score1 : $("#score1").val(), score2 : $("#score2").val()},
                 success : function(resp){
-                    alert("Funfou");
+                    //alert("Funfou");
                     
                 $.ajax({
                     url : "ranking.php",
@@ -79,4 +79,6 @@ $(document).ready(function() {
 		}
             });
         });*/
+
+       
 });
