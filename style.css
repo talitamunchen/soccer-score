@@ -74,6 +74,12 @@ html, body {
     margin-bottom: 40px;
 }
 
+.camposCad{
+    text-align: center;
+    margin-top: 130px;
+    margin-bottom: 100px;
+}
+
 #team-1 {
     display: inline-block;
     text-align: center;

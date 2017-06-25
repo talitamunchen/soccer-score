@@ -13,6 +13,6 @@
     while ($linha = pg_fetch_assoc($resp)) {
         $matriz[] = $linha;
     }
-    echo json_encode($matriz);
+    echo json_encode($matriz);	
     pg_close($con);
 ?>
