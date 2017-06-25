@@ -14,5 +14,6 @@
         $matriz[] = $linha;
     }
     echo json_encode($matriz);	
+    
     pg_close($con);
 ?>

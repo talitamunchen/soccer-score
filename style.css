@@ -56,28 +56,41 @@ html, body {
     display: block;
 }
 
-#tabela table,th,td{
+#tabela table,th,td {
     border: 1px solid black;
     text-align: center;
 }
 
-#tabela{
+#tabela {
     margin-top: 50px;
     margin-bottom: 60px;
     margin-left: 40%;
     margin-right: 10%;
 }
 
-.botao{
+.botao {
     text-align: center;
     margin-top: 30px;
     margin-bottom: 40px;
+    margin-left: 10%;
+    margin-right: 23%;
 }
 
-.camposCad{
+.botao a:link, a:hover, a:active, a:visited {
+    text-decoration:none; 
+}
+
+header a:link, a:hover, a:active, a:visited {
+    text-decoration:none;
+    color: #000000;
+}
+
+.camposCad {
     text-align: center;
     margin-top: 130px;
     margin-bottom: 100px;
+    margin-left: 5%;
+    margin-right: 18%;
 }
 
 #team-1 {
@@ -87,6 +100,7 @@ html, body {
 }
 .placar{
     margin-top: 40px;
+    font-size: 1em;
 }
 
 #team-1 p {
@@ -113,22 +127,7 @@ html, body {
     text-align-last: center;
 }
 
-.styled-select select {
-   background: transparent;
-   width: 200px;
-   padding: 5px;
-   font-size: 16px;
-   line-height: 1;
-   border: 0;
-   border-radius: 0;
-   height: 34px;
-   -webkit-appearance: none;
+.caixaPlacar {
+    width: 35px;
 }
 
-.styled-select {
-   width: 200px;;
-   height: 34px;
-   overflow: hidden;
-   background: url(pictures/arrow_select.jpg) no-repeat right #ddd;
-   border: 1px solid #ccc;
-}
